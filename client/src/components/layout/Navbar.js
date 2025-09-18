@@ -1,12 +1,12 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import { AuthContext } from "../../helpers/AuthContext";
 import { useImageUploader } from "../../hooks/useImageUploader";
-// import { logout } from "../../services/api";
 import { logout } from "../../services/apiSwitcher";
 import { AuthForm } from "../forms";
 
-import { Avatar, Tooltip, MenuItem, Link, Typography } from "@mui/material";
+import { Avatar, Tooltip, MenuItem, Typography } from "@mui/material";
 import { NavbarContainer, Logo, AvatarMenu } from "../../styles";
 
 function Navbar() {
@@ -40,7 +40,7 @@ function Navbar() {
       )}
 
       <Tooltip title="Go to homepage" arrow>
-        <Logo component="a" href="/">
+        <Logo component={RouterLink} to="/">
           TASKLY
         </Logo>
       </Tooltip>
@@ -62,12 +62,12 @@ function Navbar() {
           onClose={handleCloseUserMenu}
         >
           <MenuItem>
-            <Link href="/profile" color="text.primary">
+            <Link to="/profile" color="text.primary">
               Profile
             </Link>
           </MenuItem>
           <MenuItem>
-            <Link href="/dashboard" color="text.primary">
+            <Link to="/dashboard" color="text.primary">
               Lists management
             </Link>
           </MenuItem>

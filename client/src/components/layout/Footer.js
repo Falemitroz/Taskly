@@ -1,5 +1,5 @@
 import { PageFooter, PageFooterText } from "../../styles";
-import { Link } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -7,7 +7,7 @@ function Footer() {
       <PageFooterText>
         © {new Date().getFullYear()} Taskly | Licensed under{" "}
         <Link
-          href="https://creativecommons.org/licenses/by-nc/4.0/"
+          to="https://creativecommons.org/licenses/by-nc/4.0/"
           target="_blank"
           rel="noopener noreferrer"
           sx={{ textDecoration: "underline" }}

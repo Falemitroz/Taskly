@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../helpers/AuthContext";
+import { Link as RouterLink } from "react-router-dom";
 import { Typography, Grid } from "@mui/material";
 import {
   HomeHeader,
@@ -75,7 +76,8 @@ function Home() {
 
       <LinkButtonContainer>
         <LinkButton
-          href={user && "/dashboard"}
+          component={RouterLink}
+          to={user ? "/dashboard" : "#"}
           onClick={() => !user && setAuthForm("login")}
         >
           Get Started
