@@ -127,6 +127,9 @@ export const handlers = [
     const users = getUsers();
     const userId = getCurrentUserId();
     const user = users.find((u) => u.id === userId);
+    if (!user) {
+      return HttpResponse.json({ error: "User not found" }, { status: 404 });
+    }
 
     const formData = await request.formData();
     const file = formData.get("avatar");
