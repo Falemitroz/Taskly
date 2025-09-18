@@ -5,7 +5,7 @@ import { Home, Dashboard, Profile } from "./pages";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/Taskly">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
