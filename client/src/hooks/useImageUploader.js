@@ -48,7 +48,11 @@ export function useImageUploader({ listId, initialImage, onUploaded }) {
 
   const displayImage =
     preview ||
-    (initialImage ? initialImage : listId ? "public/images/no-image.png" : "");
+    (initialImage
+      ? initialImage
+      : listId
+      ? "client/public/images/no-image.png"
+      : "");
 
   return { preview: displayImage, openFilePicker, setPreview, FileInput };
 }
