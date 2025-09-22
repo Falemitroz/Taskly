@@ -30,10 +30,8 @@ export function useImageUploader({ listId, initialImage, onUploaded }) {
 
       setPreview(fullPath);
     } catch (err) {
-      if (err.message)
-        alert(
-          "The image exceeds the maximum dimensions."
-        ); // custom error for mock mode
+      if (err.message) alert("The image exceeds the maximum dimensions.");
+      // custom error for mock mode
       else alert("Session expired. Please log in again.");
     }
   };
@@ -50,7 +48,7 @@ export function useImageUploader({ listId, initialImage, onUploaded }) {
 
   const displayImage =
     preview ||
-    (initialImage ? initialImage : listId ? "/images/no-image.png" : "");
+    (initialImage ? initialImage : listId ? "public/images/no-image.png" : "");
 
   return { preview: displayImage, openFilePicker, setPreview, FileInput };
 }
