@@ -30,6 +30,8 @@ jobs:
         run: |
           cd client
           npm run build
+        env:
+          REACT_APP_USE_MOCK: true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
