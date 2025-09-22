@@ -73,9 +73,7 @@ function Task({ id, listId, editMode }) {
             value={task?.[field]}
             variant={field === "title" ? "h6" : "body2"}
             placeholder={
-              field === "description" && editMode
-                ? "Add description..."
-                : "Add title..."
+              field === "description" && editMode ? "Add description..." : ""
             }
             tooltip={editMode ? "Click to edit" : ""}
             editing={editMode}
