@@ -51,7 +51,7 @@ export function useImageUploader({ listId, initialImage, onUploaded }) {
     (initialImage
       ? initialImage
       : listId
-      ? "client/public/images/no-image.png"
+      ? `${process.env.PUBLIC_URL}/images/no-image.png`
       : "");
 
   return { preview: displayImage, openFilePicker, setPreview, FileInput };

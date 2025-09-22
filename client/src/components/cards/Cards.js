@@ -102,7 +102,7 @@ export const BaseCard = ({
 export const ButtonCard = ({ onClick }) => (
   <CardWrapper>
     <BlurWrapper>
-      <BaseCard image="client/public/images/no-image.png" />
+      <BaseCard image={`${process.env.PUBLIC_URL}/images/no-image.png`} />
     </BlurWrapper>
 
     <ButtonOnBlur onClick={onClick}>
