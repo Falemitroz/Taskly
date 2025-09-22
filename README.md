@@ -8,6 +8,13 @@ completate e tenere sempre sotto controllo i tuoi progressi.
 Che si tratti di lavoro, studio o vita personale, Taskly ti offre un modo semplice e
 intuitivo per strutturare le tue giornate.
 
+[Provala subito!](https://falemitroz.github.io/Taskly/)
+
+> **Nota importante:** Questo link permette di testare la web-app usando il local storage del browser.  
+> I dati creati sono temporanei e disponibili solo sul dispositivo in cui sono stati generati.  
+> 
+> Per eliminare tutti i dati salvati, accedi, vai nella pagina **Profile** e cancella definitivamente l'account.
+
 ---
 
 ## Settaggio iniziale
