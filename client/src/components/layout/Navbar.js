@@ -1,13 +1,12 @@
 import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { Link as RouterLink } from "react-router-dom";
 import { AuthContext } from "../../helpers/AuthContext";
 import { useImageUploader } from "../../hooks/useImageUploader";
 import { logout } from "../../services/apiSwitcher";
 import { AuthForm } from "../forms";
 
-import { Avatar, Tooltip, MenuItem, Typography } from "@mui/material";
-import { NavbarContainer, Logo, AvatarMenu } from "../../styles";
+import { Avatar, Tooltip, MenuItem } from "@mui/material";
+import { NavbarContainer, Logo, AvatarMenu, MenuLink } from "../../styles";
 
 function Navbar() {
   const { authForm, setAuthForm, setUser, user } = useContext(AuthContext);
@@ -40,7 +39,7 @@ function Navbar() {
       )}
 
       <Tooltip title="Go to homepage" arrow>
-        <Logo component={RouterLink} to="/">
+        <Logo component={Link} to="/">
           TASKLY
         </Logo>
       </Tooltip>
@@ -62,17 +61,13 @@ function Navbar() {
           onClose={handleCloseUserMenu}
         >
           <MenuItem>
-            <Link to="/profile" color="text.primary">
-              Profile
-            </Link>
+            <MenuLink to="/profile">Profile</MenuLink>
           </MenuItem>
           <MenuItem>
-            <Link to="/dashboard" color="text.primary">
-              Lists management
-            </Link>
+            <MenuLink to="/dashboard">Lists management</MenuLink>
           </MenuItem>
           <MenuItem onClick={handleLogout}>
-            <Typography color="text.primary">Logout</Typography>
+            <MenuLink>Logout</MenuLink>
           </MenuItem>
         </AvatarMenu>
       )}

@@ -1,5 +1,6 @@
 import { styled } from "@mui/material/styles";
 import { Typography, Menu, Box } from "@mui/material";
+import { Link as RouterLink } from "react-router-dom";
 
 // .----------------------------------------------.
 // |                    Navbar                    |
@@ -38,6 +39,11 @@ export const AvatarMenu = styled(Menu)(({ theme }) => ({
   },
 }));
 
+export const MenuLink = styled(RouterLink)(({ theme }) => ({
+  textDecoration: "none",
+  color: theme.palette.text.primary,
+}));
+
 // .----------------------------------------------.
 // |                    Footer                    |
 // '----------------------------------------------'
@@ -55,4 +61,8 @@ export const PageFooterText = styled(Typography)(({ theme }) => ({
   fontSize: theme.typography.h6.fontSize,
   color: theme.palette.text.contrastText,
   [theme.breakpoints.down("sm")]: { fontSize: theme.typography.body2.fontSize },
+}));
+
+export const LicenseLink = styled(RouterLink)(({ theme }) => ({
+  color: theme.palette.text.contrastText,
 }));
