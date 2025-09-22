@@ -5,7 +5,7 @@ import { Home, Dashboard, Profile } from "./pages";
 
 function App() {
   return (
-    <Router basename="/Taskly">
+    <Router basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/dashboard" element={<Dashboard />} />
