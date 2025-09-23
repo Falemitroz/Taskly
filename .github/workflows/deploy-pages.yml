@@ -31,7 +31,8 @@ jobs:
           cd client
           npm run build
         env:
-          WEB_APP_USE_MOCK: true
+          USE_WORKER: true
+          REACT_APP_USE_MOCK: true
 
       - name: Copy index.html to 404.html
         run: cp client/build/index.html client/build/404.html

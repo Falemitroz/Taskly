@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const baseURL =
-  process.env.REACT_APP_USE_MOCK === "true"
-    ? "/users"
-    : process.env.REACT_APP_ENV === "mobile"
+  process.env.REACT_APP_ENV === "mobile"
     ? process.env.REACT_APP_API_URL_MOBILE
     : process.env.REACT_APP_API_URL_LOCAL;
 
