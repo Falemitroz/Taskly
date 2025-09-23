@@ -8,7 +8,7 @@ import theme from "./themes/theme";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 // console.log("Mock mode on? ", process.env.REACT_APP_USE_MOCK);
 
-if (process.env.REACT_APP_USE_MOCK === "true") {
+if (process.env.WEB_APP_USE_MOCK === "true") {
   const { worker } = require("./mocks/browser");
   worker.start({
     serviceWorker: {

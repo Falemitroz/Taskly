@@ -1,6 +1,6 @@
 import { http, HttpResponse } from "msw";
 
-// ===== Helpers per localStorage =====
+// ===== Helpers for localStorage =====
 const getUsers = () => JSON.parse(localStorage.getItem("mockUsers") || "[]");
 const saveUsers = (users) =>
   localStorage.setItem("mockUsers", JSON.stringify(users));
@@ -41,7 +41,6 @@ export const handlers = [
       );
     }
 
-    // crea nuovo utente
     const newUser = {
       id: users.length ? Math.max(...users.map((u) => u.id)) + 1 : 0,
       ...body,
@@ -50,7 +49,6 @@ export const handlers = [
     users.push(newUser);
     saveUsers(users);
 
-    // inizializza liste e tasks per il nuovo utente
     const lists = getLists();
     const tasks = getTasks();
     lists[newUser.id] = [];
@@ -58,7 +56,6 @@ export const handlers = [
     saveLists(lists);
     saveTasks(tasks);
 
-    // **login automatico**
     setCurrentUserId(newUser.id);
 
     return HttpResponse.json(
@@ -90,7 +87,6 @@ export const handlers = [
     const user = users.find((u) => u.id === userId) || null;
 
     if (user) {
-      // Recupera avatar persistente
       user.avatar = getUserAvatars(userId);
     }
 
@@ -98,7 +94,7 @@ export const handlers = [
   }),
 
   http.post(`/users/logout`, async () => {
-    localStorage.clear(); // reset completo dello stato
+    localStorage.clear();
     return HttpResponse.json({ message: "Logged out" }, { status: 200 });
   }),
 
@@ -117,7 +113,6 @@ export const handlers = [
     saveTasks(tasks);
 
     localStorage.removeItem("mockCurrentUser");
-    // localStorage.removeItem(`user-${userId}-avatars`);
 
     return HttpResponse.json({ message: "User deleted" }, { status: 200 });
   }),

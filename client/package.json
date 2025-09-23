@@ -25,11 +25,11 @@
   },
   "scripts": {
     "//": "Default configuration. Send API from localhost",
-    "start": "cross-env REACT_APP_ENV=local react-scripts start",
+    "start": "cross-env HOST=localhost REACT_APP_ENV=local react-scripts start",
     "//": "Mobile testing configuration. Send API from local network IP address",
     "start:mobile": "cross-env REACT_APP_ENV=mobile react-scripts start",
     "//": "Mock testing configuration. Use mock service worker to simulate API",
-    "start:mock": "cross-env REACT_APP_USE_MOCK=true react-scripts start",
+    "start:mock": "cross-env HOST=localhost REACT_APP_USE_MOCK=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test"
   },
