@@ -16,6 +16,7 @@ class MockAxiosError extends Error {
 // ========================
 const STORAGE_KEYS = {
   USER: "mock_user",
+  TOKEN: "mock-jwt-token",
   LISTS: "mock_lists",
   TASKS: "mock_tasks",
 };
@@ -36,6 +37,7 @@ const fileToBase64 = (file) =>
 
 // --- Initial state ---
 let currentUser = loadData(STORAGE_KEYS.USER, null);
+let currentToken = loadData(STORAGE_KEYS.TOKEN, null);
 let lists = loadData(STORAGE_KEYS.LISTS, []);
 let tasks = loadData(STORAGE_KEYS.TASKS, {});
 
@@ -49,8 +51,10 @@ export const registration = async (data) => {
     throw new MockAxiosError(409, { error: "User already exist." });
   }
   currentUser = { id: Date.now(), ...data, avatar: null };
+  currentToken = "mock-jwt-token";
   saveData(STORAGE_KEYS.USER, currentUser);
-  return { token: "mock-jwt-token" };
+  saveData(STORAGE_KEYS.TOKEN, currentToken);
+  return { token: currentToken };
 };
 
 // Login
@@ -62,15 +66,21 @@ export const login = async (data) => {
   ) {
     throw new MockAxiosError(401, { error: "Invalid credentials." });
   }
-  return { token: "mock-jwt-token" };
+  currentToken = "mock-jwt-token";
+  saveData(STORAGE_KEYS.TOKEN, currentToken);
+  return { token: currentToken };
 };
 
 // Logout
-export const logout = async () => ({ message: "Logged out" });
+export const logout = async () => {
+  currentToken = null;
+  saveData(STORAGE_KEYS.TOKEN, currentToken);
+  return { message: "Logged out" };
+};
 
 // Get user info
 export const getUserInfo = async () => {
-  if (!currentUser) {
+  if (!currentToken) {
     throw new MockAxiosError(401, { error: "Unauthorized" });
   }
   return currentUser;
