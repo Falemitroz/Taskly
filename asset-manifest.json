@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/Taskly/static/js/main.e1045144.js",
+    "main.js": "/Taskly/static/js/main.b2c9631c.js",
     "index.html": "/Taskly/index.html",
-    "main.e1045144.js.map": "/Taskly/static/js/main.e1045144.js.map"
+    "main.b2c9631c.js.map": "/Taskly/static/js/main.b2c9631c.js.map"
   },
   "entrypoints": [
-    "static/js/main.e1045144.js"
+    "static/js/main.b2c9631c.js"
   ]
 }
