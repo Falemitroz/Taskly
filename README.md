@@ -1,25 +1,23 @@
-# Presentazione
+# Presentation
 
-Taskly è una web-app pensata per organizzare al meglio le tue attività quotidiane.
-Con Taskly puoi creare liste personalizzate di task, ognuna arricchita da un’immagine
-di copertina per renderla più riconoscibile e visivamente accattivante.
-All’interno di ogni lista puoi aggiungere una check-list di attività, spuntare quelle
-completate e tenere sempre sotto controllo i tuoi progressi.
-Che si tratti di lavoro, studio o vita personale, Taskly ti offre un modo semplice e
-intuitivo per strutturare le tue giornate.
+Taskly is a web app designed to help you organize your daily activities efficiently.
+With Taskly, you can create personalized task lists, each enhanced with a cover image to make it more recognizable and visually appealing.
+Within each list, you can add a checklist of activities, mark completed tasks, and always keep track of your progress.
+Whether it’s for work, study, or personal life, Taskly provides a simple and intuitive way to structure your days.
 
-[Provala subito!](https://falemitroz.github.io/Taskly/)
+Try it now!
+[Taskly](https://falemitroz.github.io/Taskly/)
 
-> **Nota importante:** Questo link permette di testare la web-app usando il local storage del browser.  
-> I dati creati sono temporanei e disponibili solo sul dispositivo in cui sono stati generati.
->
-> Per eliminare tutti i dati salvati, accedi, vai nella pagina **Profile** e cancella definitivamente l'account.
+> **Important Note**: This link allows you to test the web app using the browser’s local storage, so any data created is temporary and available only on the device where it was generated.
+> To delete all saved data, log in, go to the Profile page, and permanently delete your account.
 
 ---
 
-## Settaggio iniziale
+# Technical information
 
-1. Aprire il terminale nella cartella principale del progetto e installare le dipendenze con i seguenti comandi:
+## Initial setup
+
+1. Open the terminal in the main project folder and install the dependencies using the following commands:
 
 ```bash
 cd client && npm install
@@ -33,7 +31,7 @@ cd ../server && npm install
 cd ..
 ```
 
-2. Creare i file .env per il client e il server. Puoi crearli manualmente oppure eseguire i comandi seguenti:
+2. Create the .env files for both the client and the server. You can create them manually or run the following commands:
 
 ```bash
 cd client && touch .env
@@ -47,7 +45,7 @@ cd ../server && touch .env
 cd ..
 ```
 
-3. Inserire le variabili d'ambiente nei rispettivi file:
+3. Add the environment variables to their respective files:
 
 ```bash
 # /client/.env
@@ -71,19 +69,19 @@ CLIENT_URL_LOCAL=http://localhost:<your_client_port>
 CLIENT_URL_MOBILE=http://192.168.x.x:<your_client_port>
 ```
 
-> Sostituisci i valori tra parentesi angolari e "192.168.x.x" con le informazioni corrispondenti al tuo computer e alla tua rete locale.
+> Replace the values within angle brackets and "192.168.x.x" with the information corresponding to your computer and local network.
 
 ---
 
-## Modalità d'esecuzione
+## Execution Modes
 
-- **Default:** client e server comunicano tramite localhost.
-- **Mobile:** come Default, ma il server accetta richieste anche da altri dispositivi sulla stessa rete locale.
-- **Mock:** viene avviato solo il client, utilizzando dati mock per simulare le chiamate al backend.
+- **Default:** The client and server communicate via localhost.
+- **Mobile:** By default, but the server also accepts requests from other devices on the same local network.
+- **Mock:** Only the client is launched, using mock data to simulate backend calls.
 
-### Comandi d'avvio
+### Startup Commands
 
-> Aprire due terminali separati per client e server, quindi eseguire i comandi corrispondenti alla modalità desiderata:
+> Open two separate terminals for the client and the server, then run the commands corresponding to the desired mode:
 
 1. **Default**
 
@@ -103,10 +101,23 @@ npm run start
 npm run start:mobile
 ```
 
-3. **Mock** (il server non deve essere avviato)
+3. **Mock** (the server does not need to be started)
 
 ```bash
 npm run start:mock
 ```
 
-> oppure tramite il link fornito con la presentazione.
+> or via the link provided in the presentation.
+
+## Technology Stack Used
+
+- **`Javascript`** (main language)
+- **`React`** (front-end)
+- **`Express/Node.js`** (back-end)
+- **`Sequelize`** (database)
+
+> ### Notes
+>
+> **Visual Components Management:** The styling of the web app’s visual elements has been centralized in the `/client/src/styles` folder. The components in this directory are customizations of the **MUI Materials** library, used in place of traditional CSS to accelerate the development process.
+>
+> **Security:** Access to all functionalities of the web app, except for `login` and `registration` operations, requires authentication. Upon completion of the authentication process, a **JSON Web Token (JWT)** is generated, which is used to authorize subsequent requests. This token is stored in the user’s cookies and contains session information, such as the user ID and expiration time, thereby ensuring the security and validity of the session.
