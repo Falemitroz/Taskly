@@ -1,5 +1,9 @@
 # Presentation
 
+https://github.com/user-attachments/assets/ce75a624-1c0b-4616-bef1-93c144723109
+
+
+
 Taskly is a web app designed to help you organize your daily activities efficiently.
 With Taskly, you can create personalized task lists, each enhanced with a cover image to make it more recognizable and visually appealing.
 Within each list, you can add a checklist of activities, mark completed tasks, and always keep track of your progress.
